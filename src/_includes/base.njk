@@ -19,6 +19,8 @@
         </ul>
     </nav>
     <main class="container">
+        {% include "components/post-list.njk" %}
+        
         {{ content | safe }}
     </main>
     <footer class="container">

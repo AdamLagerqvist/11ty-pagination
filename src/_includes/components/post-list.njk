@@ -1,0 +1,5 @@
+<ul>
+{% for post in collections.posts %}
+    <li><a href="/posts/{{ post.data.title | slug }}"> {{ post.data.title }} - {{ post.data.date | dateFilter }}</a></li>
+{% endfor %}
+</ul>
