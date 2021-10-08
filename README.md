@@ -61,3 +61,29 @@ Självklart använder ni er av allt vi har övat på.
 - API (kanske)
 
 [Lista med gratis API](https://github.com/public-apis/public-apis)
+
+
+# Skapa ett date filter
+
+```bash
+npm install moment
+```
+
+.eleventy.js
+```js
+const moment = require('moment');
+    eleventyConfig.addFilter('dateFilter', (value) => {
+        moment.locale('sv'); 
+        return moment(value).format('LLLL');
+    })
+```
+
+Nu kan vi använda datumfiltret i våra sidor.
+
+```njk
+---
+date: 2021-01-01
+---
+
+{{ date | dateFilter }}
+```
