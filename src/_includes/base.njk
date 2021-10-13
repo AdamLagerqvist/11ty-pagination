@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pungråttor</title>
+    <title>Musik</title>
     <link rel="stylesheet" href="{{ '/css/main.css' }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -13,8 +13,8 @@
         <ul class="nav">
             <li><a href="/">Hem</a></li>
             <li><a href="/trivia">Trivia</a></li>
-        {% for possum in possums %}
-            <li><a href="/possums/{{ possum.name | slug }}">{{ possum.name }}</a></li>
+        {% for album in albums %}
+            <li><a href="/albums/{{ album.name | slug }}">{{ album.name }}</a></li>
         {% endfor %}
         </ul>
     </nav>
@@ -22,7 +22,7 @@
         {{ content | safe }}
     </main>
     <footer class="container">
-        <p><s>Robots</s> Pungråttor levererade av <a href="https://robohash.org/" target="_blank" rel="noreferrer">Robohash.org</a> med ♥.</p>
+        <p>Skivomslags bilderna är <s>stulna</s> hämtade från Wikipedia.com</p>
     </footer>
 </body>
 </html>

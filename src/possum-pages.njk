@@ -1,12 +1,12 @@
 ---
 layout: base.njk
 pagination:
-    data: possums
+    data: albums
     size: 1
-    alias: possum
-permalink: "possums/{{ possum.name | slug }}/"
+    alias: album
+permalink: "albums/{{ album.name | slug }}/"
 ---
 
-<img alt="{{ possum.name }}" src="https://robohash.org/{{ possum.name | slug }}?size=300x300">
+<img alt="{{ album.name }}" src="{{ album.img }}">
 
-<h1>{{ possum.name }} är {{ possum.age }}år gammal.</h1>
+<h1>{{ album.name }} släpptes den {{ album.release | dateFilter }}</h1>
