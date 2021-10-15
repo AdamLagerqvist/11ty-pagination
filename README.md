@@ -61,3 +61,67 @@ Självklart använder ni er av allt vi har övat på.
 - API (kanske)
 
 [Lista med gratis API](https://github.com/public-apis/public-apis)
+
+
+# Skapa ett date filter
+
+```bash
+npm install moment
+```
+
+.eleventy.js
+```js
+const moment = require('moment');
+    eleventyConfig.addFilter('dateFilter', (value) => {
+        moment.locale('sv'); 
+        return moment(value).format('LLLL');
+    })
+```
+
+Nu kan vi använda datumfiltret i våra sidor.
+
+```njk
+---
+date: 2021-01-01
+---
+
+{{ date | dateFilter }}
+```
+
+# Posts
+
+Vi kan skapa en mapp i src för innehåll.
+📁 src/posts
+
+I denna mapp kan vi sedan skapa en posts.json för gemensam front matter och sedan varje fil för innehållet.
+Där kan vi även koppla vilken layout alla filerna ska använda.
+
+```json
+{
+    "layout": "post.njk",
+    "tags": ["posts", "possums"]
+}
+```
+
+Vi skapar posts.njk i _includes.
+```njk
+---
+layout: base.njk
+permalink: "posts/{{ title | slug }}/index.html"
+---
+
+{{ content | safe }}
+```
+
+Sedan kan vi skapa innehåll i posts mappen.
+
+```
+---
+title: Fluffy is back
+date: 2021-01-01
+---
+
+# He's back
+
+Fluffy is back, although he kinda smells.
+```
